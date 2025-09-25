@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu_latest
     steps:
       - uses: actions/checkout@v4
-      - ru: python test/unit/test_math_lib.py
+      - run: python test/unit/test_math_lib.py
