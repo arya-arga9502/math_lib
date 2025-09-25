@@ -6,18 +6,19 @@ on:
 
 jobs:
   run_unit_test:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: python test/unit/test_math_lib.py
 
-on:
-  push:
-  pull_request:
-
-jobs:
   run_functional_test:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: bash test/func/test_add.sh
+
+  run_style_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pycodestyle $(git ls-files "*.py")
